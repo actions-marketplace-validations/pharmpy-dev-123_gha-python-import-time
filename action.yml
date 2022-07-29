@@ -7,7 +7,7 @@ inputs:
   threshold:
     description: 'The time threshold. If the code takes longer than that to import stuff, the action will fail.'
     required: False
-    default: 250
+    default: 250000
 
 runs:
   using: "composite"
