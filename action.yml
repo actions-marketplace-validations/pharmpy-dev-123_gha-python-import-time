@@ -19,4 +19,6 @@ runs:
         CODE: ${{inputs.code}}
         THRESHOLD: ${{inputs.threshold}}
       run: |
-        bash ${{ github.action_path }}/importtime.sh "${CODE}" "${THRESHOLD}"
+        importtime="$(python -X importtime -c "${CODE}" 2>&1 | tail -1 | sed 's/^.*| *\([0-9][0-9]*\) *|.*$/\1/g')"
+        echo "Import time for '${CODE}' is ${importtime} and threshold is ${THRESHOLD}"
+        test "${importtime}" -le "${THRESHOLD}"
