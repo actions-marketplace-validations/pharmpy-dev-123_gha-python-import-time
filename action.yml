@@ -16,6 +16,6 @@ runs:
     - name: Check import time of `${{inputs.code}}` ⏳
       shell: bash
       run: |
-        importtime="$(python -X importtime -c ${{inputs.code}} 2>&1 | tail -1 | sed 's/^.*| *\([0-9][0-9]*\) *|.*$/\1/g')"
+        importtime="$(python -X importtime -c '${{inputs.code}}' 2>&1 | tail -1 | sed 's/^.*| *\([0-9][0-9]*\) *|.*$/\1/g')"
         echo "Import time for '${{inputs.code}}' is ${importtime} and threshold is ${{inputs.threshold}}"
         test "$importtime" -le ${{inputs.threshold}}
