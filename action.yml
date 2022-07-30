@@ -1,5 +1,9 @@
 name: 'Python import time'
-description: 'Bound the time it takes for some python code to import stuff'
+description: 'Bound the time it takes for some python code to import stuff.'
+branding:
+  icon: 'zap'
+  color: 'yellow'
+
 inputs:
   code:
     description: 'The code to measure.'
